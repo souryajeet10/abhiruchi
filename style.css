@@ -344,24 +344,37 @@ opacity:0;
 }
 }
 .scroll-down{
-    position:absolute;
-    bottom:30px;
-    left:50%;
-    transform:translateX(-50%);
+    position:fixed;
+    right:30px;
+    top:50%;
+    transform:translateY(-50%);
     display:flex;
     flex-direction:column;
     align-items:center;
     color:#c2185b;
-    font-size:16px;
-    animation:fadeUpDown 2s infinite;
+    font-size:15px;
+    font-weight:600;
+    z-index:1000;
+    animation:float 2s ease-in-out infinite;
 }
-
+@keyframes float{
+    0%,100%{
+        transform:translateY(-50%);
+    }
+    50%{
+        transform:translateY(calc(-50% + 8px));
+    }
+}
+.scroll-down span{
+    writing-mode:vertical-rl;
+    letter-spacing:3px;
+    margin-bottom:12px;
+}
 .mouse{
     width:28px;
     height:48px;
     border:2px solid #c2185b;
     border-radius:20px;
-    margin-top:10px;
     position:relative;
 }
 
@@ -376,7 +389,6 @@ opacity:0;
     top:8px;
     animation:scrollWheel 1.6s infinite;
 }
-
 @keyframes scrollWheel{
     0%{
         opacity:1;
